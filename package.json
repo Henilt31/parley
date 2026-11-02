@@ -1,0 +1,33 @@
+{
+  "name": "parley",
+  "version": "1.0.0",
+  "description": "Let your Claude Code session and your teammates' sessions talk to each other through a small shared hub (MCP).",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "parley": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/postbuild.mjs",
+    "hub": "node dist/hub.js",
+    "start": "node dist/hub.js",
+    "test": "npm run build && node scripts/test.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}
